@@ -1,43 +1,83 @@
-# SPO Labs — Variant 1: environment smoke test
+# СПО — задание №1, вариант 1
 
-This is an **environment check**, not an implementation of Lab 1.
+Парсер на **C + PackCC**. Он читает текст программы, собирает дерево AST и сохраняет его в файл Graphviz DOT. Программу на нашем языке он **не выполняет**.
 
-## WSL / Ubuntu
+## Быстрый запуск в WSL
 
-Install: `sudo apt update && sudo apt install -y build-essential gdb git flex bison graphviz valgrind`
-
-```sh
-make
-make check
-make run ARGS=5
-make debug
-make clean
+```bash
+make doctor             # проверить инструменты
+make clean && make      # сгенерировать парсер и собрать
+make check              # тесты
+make visualize-extended # построить чёрно-белое дерево
+make memcheck           # проверить утечки, включая неверный ввод
 ```
 
-Open the folder in VS Code through WSL (`code .`), install Microsoft's C/C++ extension **in WSL**, then press F5. Set a breakpoint at the `for (const Node *current = head; ...)` line and expand `head`, `head->next`, `head->next->next` in VARIABLES or WATCH.
+Открой `build/linux/extended.dot` через **Graphviz Interactive Preview** в VS Code. Готовая SVG-картинка лежит в `build/linux/extended.svg`.
 
-## Native Windows (MSYS2 UCRT64)
+## Пример преподавателя: три арифметических выражения
 
-In a **UCRT64** shell (not WSL):
-
-```sh
-pacman -Syu
-pacman -S --needed mingw-w64-ucrt-x86_64-gcc mingw-w64-ucrt-x86_64-gdb make
-make
-make check
-make debug
+```bash
+make teacher       # четыре отдельных монохромных дерева
 ```
 
-If the MSYS2 update asks you to restart the terminal, do so first.
+В `examples/teacher/all.spo` — адаптация примера с `function main() as int`: функции записываем как `int main() { ... }`. В `build/linux/teacher/` будут SVG и DOT для каждой строки отдельно и для всех строк вместе. Подробнее: **`docs/teacher.md`**.
 
-Separate build outputs avoid mixing executables:
-- WSL: `build/linux/spo-lab`
-- Windows: `build/windows/spo-lab.exe`
+## Сборка для Windows (MSYS2 UCRT64)
 
-The included VS Code `launch.json` targets **WSL only**. For native Windows GUI debugging, create a separate local Windows workspace/debug configuration using UCRT64's `gdb.exe`, or use a CLion MinGW toolchain.
+```bash
+make doctor-windows
+make verify-windows
+```
 
-## Notes
+Эти команды нужно выполнять **в MSYS2 UCRT64**, не в WSL. Получится `build/windows/spo-parser.exe`. Пошаговая установка компилятора и PackCC: **`docs/windows.md`**. Проверка памяти через Valgrind остаётся в WSL.
 
-Project sources should live on the Linux filesystem (`~/projects/...`) when building with WSL; clone a separate worktree into Windows for the native build. Track changes with GitLab.
+## Примеры для защиты
 
-Once tooling is verified, replace the smoke test with modules for lexer/parser/AST, CFG and code generation.
+```bash
+make demo         # 10 небольших деревьев, каждое в отдельном SVG
+make demo-errors  # 2 неправильные программы с диагностикой
+```
+
+Графы лежат в `build/linux/demo/`. Начни с `01-priority.svg` и `02-parentheses.svg`: они показывают разницу между `2 + 3 * 4` и `(2 + 3) * 4`.
+
+**`docs/defense.md`** — короткая шпаргалка: какие файлы открыть, что сказать преподавателю и как показать работу отладчика.
+
+Пустой исходный файл тоже допустим (`sourceItem*`): для него создаётся `AST_PROGRAM` без функций.
+
+Проверить всё одной командой: `make verify`. Для особенно строгой сборки: `make strict`. Дополнительно: `make asan-check` (если AddressSanitizer работает в WSL).
+
+## Свой файл
+
+```bash
+./build/linux/spo-parser examples/basic.spo build/linux/my.dot
+dot -Tsvg build/linux/my.dot -o build/linux/my.svg
+```
+
+При ошибке парсер печатает сообщение в `stderr` и завершается с ненулевым кодом. Модуль `parse_source_n()` возвращает дерево и список диагностик, **сам ничего не печатает**.
+
+## Отладка в VS Code
+
+Поставь breakpoint в `src/main.c` после `parse_source_n()`, нажми **F5**. В Watch добавь `result.root` и раскрывай потомков. Файл `.vscode/ast.natvis` делает подписи понятнее.
+
+## Где что лежит
+
+- `grammar/language.peg` — правила языка и создание узлов AST.
+- `include/`, `src/` — интерфейсы, AST, ошибки, Graphviz и CLI.
+- `examples/` — короткий и большой примеры.
+- `tests/` — модульные, интеграционные, пограничные тесты и Valgrind.
+- `docs/verification.md` — **проверки по шагам** с ожидаемыми результатами.
+- `docs/compliance.md` — что из задания проверено, а что важно оговорить.
+- `docs/report-draft.md` — основа отчёта; титульный лист и результаты заполнить самому.
+- `build/` — автоматически создаётся; **в Git не добавлять**.
+
+## Важные особенности
+
+- Исходный файл содержит функции, в том числе только объявления через `;`.
+- Типы, массивы, литералы, вызовы, индексация, `if-else`, `while`, `do-while`, `break`, арифметика и логика представлены в AST.
+- `return` в исходной грамматике **не задан**, поэтому мы его не добавляем.
+- `int[,]` разрешён правилом типа массива из варианта, хотя в требованиях также упоминаются одномерные массивы.
+- Приоритеты операторов явно заданы нами, потому что `binOp` и `unOp` в задании не перечислены.
+- `build/linux/language.c` и `.h` созданы PackCC — их **не редактировать**.
+- Проверка смысла программы (например, объявлена ли переменная) **не входит в синтаксический анализ**.
+- При неверном синтаксисе обычно сообщаем первую ошибку, не пытаясь продолжить разбор.
+- **Ограничение:** нехватка памяти внутри самого *сгенерированного* PackCC пока не покрыта безопасным восстановлением: стандартные обработчики PackCC могут завершить процесс. Для окончательного формального соответствия запрету на `exit()` эту часть нужно отдельно доработать и испытать с внедрением отказов выделения памяти.

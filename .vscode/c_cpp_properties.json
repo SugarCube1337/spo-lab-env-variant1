@@ -1,0 +1,17 @@
+{
+    "configurations": [
+        {
+            "name": "WSL Ubuntu",
+            "compilerPath": "/usr/bin/gcc",
+            "intelliSenseMode": "linux-gcc-x64",
+            "cStandard": "c11",
+            "includePath": [
+                "${workspaceFolder}/include",
+                "${workspaceFolder}/src",
+                "${workspaceFolder}/build/linux"
+            ],
+            "defines": []
+        }
+    ],
+    "version": 4
+}

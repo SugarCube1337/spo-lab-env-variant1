@@ -1,0 +1,259 @@
+# Лабораторная №1, вариант 1.
+# PackCC проверяет синтаксис, а действия в { ... } создают наши узлы AST.
+# Литералы сохраняем как исходный текст: пока ничего не вычисляем.
+%prefix "spo"
+%value "AstNode *"
+%auxil "ParseSession *"
+
+%header {
+#include "parser_internal.h"
+}
+
+%source {
+#include "parser_internal.h"
+#define PCC_GETCHAR(auxil) parse_next_byte(auxil)
+#define PCC_ERROR(auxil) parse_record_error(auxil)
+#define PCC_DEBUG(auxil, event, rule, level, pos, buffer, length) \
+    parse_trace((auxil), (event), (size_t)(pos), (size_t)(length))
+}
+
+# По условию в исходном файле могут быть только функции и их объявления.
+source <- _ f:function_list _ !. ~{
+    parse_expect(auxil, $0e, "expected function declaration or end of file");
+} {
+    auxil->root = ast_make(auxil, AST_PROGRAM, NULL, f, NULL);
+    auxil->success = (auxil->root != NULL);
+    $$ = auxil->root;
+}
+
+function_list <- f:function_def _ tail:function_list {
+    $$ = ast_make(auxil, AST_LIST, NULL, f, tail);
+} / '' { $$ = NULL; }
+
+# Возвращаемый тип и типы параметров по исходной грамматике необязательны.
+function_def <- t:type_ref spaces n:identifier _ '(' _ p:parameters _ ')' _ b:function_body {
+    AstNode *parts = ast_make(auxil, AST_FUNCTION_PART, NULL, p, b);
+    $$ = ast_make(auxil, AST_FUNCTION, n ? n->text : NULL, t, parts);
+} / n:identifier _ '(' _ p:parameters _ ')' _ b:function_body {
+    AstNode *parts = ast_make(auxil, AST_FUNCTION_PART, NULL, p, b);
+    $$ = ast_make(auxil, AST_FUNCTION, n ? n->text : NULL, NULL, parts);
+}
+
+function_body <- b:block { $$ = b; }
+               / ';' { $$ = NULL; }
+
+parameters <- p:parameter_items { $$ = p; }
+            / '' { $$ = NULL; }
+
+# После запятой обязателен следующий параметр.
+parameter_items <- p:parameter _ ',' _ rest:parameter_items {
+    $$ = ast_make(auxil, AST_LIST, NULL, p, rest);
+} / p:parameter {
+    $$ = ast_make(auxil, AST_LIST, NULL, p, NULL);
+}
+
+parameter <- t:type_ref spaces n:identifier {
+    $$ = ast_make(auxil, AST_PARAMETER, NULL, t, n);
+} / n:identifier {
+    $$ = ast_make(auxil, AST_PARAMETER, NULL, NULL, n);
+}
+
+# Рекурсивный тип: int, MyType, int[], int[,], int[][] и т.п.
+# В text узла ArrayType сохраняем запись скобок, например "[]" или "[,]".
+type_ref <- b:type_ref _ < '[' ','* ']' > {
+    $$ = ast_make(auxil, AST_ARRAY_TYPE, $1, b, NULL);
+} / t:base_type { $$ = t; }
+
+base_type <- < ('bool' / 'byte' / 'int' / 'uint' / 'long' / 'ulong' / 'char' / 'string') > !ident_char {
+    $$ = ast_make(auxil, AST_TYPE, $1, NULL, NULL);
+} / n:identifier {
+    $$ = ast_make(auxil, AST_TYPE, n ? n->text : NULL, NULL, NULL);
+}
+
+block <- '{' _ s:statement_list _ '}' {
+    $$ = ast_make(auxil, AST_BLOCK, NULL, s, NULL);
+}
+
+statement_list <- s:statement _ tail:statement_list {
+    $$ = ast_make(auxil, AST_LIST, NULL, s, tail);
+} / '' { $$ = NULL; }
+
+# Управляющие операторы ставим раньше объявления/выражения.
+statement <- n:if_statement { $$ = n; }
+           / n:while_statement { $$ = n; }
+           / n:do_statement { $$ = n; }
+           / n:break_statement { $$ = n; }
+           / n:block { $$ = n; }
+           / n:declaration { $$ = n; }
+           / n:expression_statement { $$ = n; }
+
+# Если есть else, связываем его с ближайшим if.
+if_statement <- 'if' !ident_char _ '(' _ c:expression _ ')' _ t:statement _ 'else' !ident_char _ e:statement {
+    AstNode *branches = ast_make(auxil, AST_IF_BRANCHES, NULL, t, e);
+    $$ = ast_make(auxil, AST_IF, NULL, c, branches);
+} / 'if' !ident_char _ '(' _ c:expression _ ')' _ t:statement {
+    AstNode *branches = ast_make(auxil, AST_IF_BRANCHES, NULL, t, NULL);
+    $$ = ast_make(auxil, AST_IF, NULL, c, branches);
+}
+
+while_statement <- 'while' !ident_char _ '(' _ c:expression _ ')' _ b:statement {
+    $$ = ast_make(auxil, AST_WHILE, NULL, c, b);
+}
+
+do_statement <- 'do' !ident_char _ b:block _ 'while' !ident_char _ '(' _ c:expression _ ')' _ ';' {
+    $$ = ast_make(auxil, AST_DO_WHILE, NULL, b, c);
+}
+
+break_statement <- 'break' !ident_char _ ';' {
+    $$ = ast_make(auxil, AST_BREAK, NULL, NULL, NULL);
+}
+
+declaration <- t:type_ref spaces v:variable_list _ ';' {
+    $$ = ast_make(auxil, AST_DECLARATION, NULL, t, v);
+}
+
+variable_list <- v:variable _ ',' _ rest:variable_list {
+    $$ = ast_make(auxil, AST_LIST, NULL, v, rest);
+} / v:variable {
+    $$ = ast_make(auxil, AST_LIST, NULL, v, NULL);
+}
+
+variable <- n:identifier _ '=' _ e:expression ~{
+    parse_expect(auxil, $0e, "expected expression after '='");
+} {
+    $$ = ast_make(auxil, AST_VARIABLE, NULL, n, e);
+} / n:identifier {
+    $$ = ast_make(auxil, AST_VARIABLE, NULL, n, NULL);
+}
+
+expression_statement <- n:expression _ ';' {
+    $$ = ast_make(auxil, AST_EXPRESSION_STMT, NULL, n, NULL);
+}
+
+# Уровни приоритетов: присваивание слабее логики, умножение сильнее сложения.
+# Присваивание правоассоциативно: a = b = 1 -> a = (b = 1).
+expression <- e:assignment { $$ = e; }
+assignment <- l:logical_or _ '=' !'=' _ r:assignment {
+    $$ = ast_make(auxil, AST_BINARY, "=", l, r);
+} / e:logical_or { $$ = e; }
+
+logical_or <- l:logical_or _ '||' _ r:logical_and {
+    $$ = ast_make(auxil, AST_BINARY, "||", l, r);
+} / e:logical_and { $$ = e; }
+
+logical_and <- l:logical_and _ '&&' _ r:bit_or {
+    $$ = ast_make(auxil, AST_BINARY, "&&", l, r);
+} / e:bit_or { $$ = e; }
+
+bit_or <- l:bit_or _ '|' !'|' _ r:bit_xor {
+    $$ = ast_make(auxil, AST_BINARY, "|", l, r);
+} / e:bit_xor { $$ = e; }
+
+bit_xor <- l:bit_xor _ '^' _ r:bit_and {
+    $$ = ast_make(auxil, AST_BINARY, "^", l, r);
+} / e:bit_and { $$ = e; }
+
+bit_and <- l:bit_and _ '&' !'&' _ r:equality {
+    $$ = ast_make(auxil, AST_BINARY, "&", l, r);
+} / e:equality { $$ = e; }
+
+equality <- l:equality _ '==' _ r:comparison {
+    $$ = ast_make(auxil, AST_BINARY, "==", l, r);
+} / l:equality _ '!=' _ r:comparison {
+    $$ = ast_make(auxil, AST_BINARY, "!=", l, r);
+} / e:comparison { $$ = e; }
+
+comparison <- l:comparison _ '<=' _ r:shift {
+    $$ = ast_make(auxil, AST_BINARY, "<=", l, r);
+} / l:comparison _ '>=' _ r:shift {
+    $$ = ast_make(auxil, AST_BINARY, ">=", l, r);
+} / l:comparison _ '<' !'<' _ r:shift {
+    $$ = ast_make(auxil, AST_BINARY, "<", l, r);
+} / l:comparison _ '>' !'>' _ r:shift {
+    $$ = ast_make(auxil, AST_BINARY, ">", l, r);
+} / e:shift { $$ = e; }
+
+shift <- l:shift _ '<<' _ r:additive {
+    $$ = ast_make(auxil, AST_BINARY, "<<", l, r);
+} / l:shift _ '>>' _ r:additive {
+    $$ = ast_make(auxil, AST_BINARY, ">>", l, r);
+} / e:additive { $$ = e; }
+
+additive <- l:additive _ '+' _ r:multiplicative {
+    $$ = ast_make(auxil, AST_BINARY, "+", l, r);
+} / l:additive _ '-' _ r:multiplicative {
+    $$ = ast_make(auxil, AST_BINARY, "-", l, r);
+} / e:multiplicative { $$ = e; }
+
+multiplicative <- l:multiplicative _ '*' _ r:unary {
+    $$ = ast_make(auxil, AST_BINARY, "*", l, r);
+} / l:multiplicative _ '/' _ r:unary {
+    $$ = ast_make(auxil, AST_BINARY, "/", l, r);
+} / l:multiplicative _ '%' _ r:unary {
+    $$ = ast_make(auxil, AST_BINARY, "%", l, r);
+} / e:unary { $$ = e; }
+
+unary <- < ('++' / '--' / '+' / '-' / '!' / '~') > _ e:unary {
+    $$ = ast_make(auxil, AST_UNARY, $1, e, NULL);
+} / e:postfix { $$ = e; }
+
+# Вызовы и индексация могут идти цепочкой: foo(1)[0] или matrix[0][1].
+postfix <- f:postfix _ '(' _ a:arguments _ ')' ~{
+    parse_expect(auxil, $0e, "expected ')' after function arguments");
+} {
+    $$ = ast_make(auxil, AST_CALL, NULL, f, a);
+} / a:postfix _ '[' _ indexes:arguments _ ']' {
+    $$ = ast_make(auxil, AST_INDEX, NULL, a, indexes);
+} / e:primary { $$ = e; }
+
+arguments <- a:argument_items { $$ = a; }
+           / '' { $$ = NULL; }
+
+# Как и в исходном list<item>, запятая в конце списка запрещена.
+argument_items <- a:expression _ ',' _ rest:argument_items {
+    $$ = ast_make(auxil, AST_LIST, NULL, a, rest);
+} / a:expression {
+    $$ = ast_make(auxil, AST_LIST, NULL, a, NULL);
+}
+
+primary <- e:literal { $$ = e; }
+         / e:identifier { $$ = e; }
+         / '(' _ e:expression _ ')' { $$ = e; }
+
+literal <- n:hex_literal { $$ = n; }
+         / n:bits_literal { $$ = n; }
+         / n:dec_literal { $$ = n; }
+         / n:string_literal { $$ = n; }
+         / n:char_literal { $$ = n; }
+         / n:bool_literal { $$ = n; }
+
+# Общая часть грамматики — токены. Текст сохраняем без преобразования.
+hex_literal <- < '0' [xX] [0-9A-Fa-f]+ > !ident_char {
+    $$ = ast_make(auxil, AST_HEX, $1, NULL, NULL);
+}
+bits_literal <- < '0' [bB] [01]+ > !ident_char {
+    $$ = ast_make(auxil, AST_BITS, $1, NULL, NULL);
+}
+dec_literal <- < [0-9]+ > !ident_char {
+    $$ = ast_make(auxil, AST_INTEGER, $1, NULL, NULL);
+}
+bool_literal <- < ('true' / 'false') > !ident_char {
+    $$ = ast_make(auxil, AST_BOOL, $1, NULL, NULL);
+}
+string_literal <- < '"' ( [^"\\] / '\\' . )* '"' > {
+    $$ = ast_make(auxil, AST_STRING, $1, NULL, NULL);
+}
+# В исходном варианте char — один символ между апострофами, без экранирования.
+char_literal <- < "'" [^'] "'" > {
+    $$ = ast_make(auxil, AST_CHAR, $1, NULL, NULL);
+}
+
+# Слова языка не считаем обычными именами переменных.
+identifier <- !keyword < [a-zA-Z_][a-zA-Z_0-9]* > {
+    $$ = ast_make(auxil, AST_IDENTIFIER, $1, NULL, NULL);
+}
+keyword <- ('if' / 'else' / 'while' / 'do' / 'break' / 'true' / 'false' /
+            'bool' / 'byte' / 'int' / 'uint' / 'long' / 'ulong' / 'char' / 'string') !ident_char
+ident_char <- [a-zA-Z_0-9]
+spaces <- [ \t\r\n]+
+_ <- [ \t\r\n]*

@@ -35,11 +35,17 @@
       ]
     },
     {
-      "type": "cmake",
-      "label": "CMake: clean",
-      "command": "clean",
+      "label": "make: visualize",
+      "type": "shell",
+      "command": "make",
+      "args": [
+        "visualize"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
       "problemMatcher": [],
-      "detail": "CMake template clean task"
+      "detail": "Собрать AST и картинку SVG"
     }
   ]
 }

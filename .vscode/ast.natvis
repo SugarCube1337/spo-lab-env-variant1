@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+  <!-- Смотрим на само дерево, без служебной цепочки allocated_next. -->
+  <Type Name="AstNode">
+    <DisplayString Condition="text != 0">вид: {kind}, текст: {text,s}</DisplayString>
+    <DisplayString>вид: {kind}</DisplayString>
+    <Expand>
+      <Item Name="Вид узла">kind</Item>
+      <Item Name="Текст" Condition="text != 0">text,s</Item>
+      <Item Name="Левый потомок" Condition="left != 0">*left</Item>
+      <Item Name="Правый потомок" Condition="right != 0">*right</Item>
+    </Expand>
+  </Type>
+</AutoVisualizer>

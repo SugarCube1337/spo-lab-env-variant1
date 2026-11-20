@@ -1,0 +1,33 @@
+int sum(int a, int b);
+
+int process(int[] values, uint limit) {
+    int x = 0x2A, y = 0b101;
+    char letter = 'Z';
+    string message = "hello\\n";
+    bool active = true;
+    int[,] matrix;
+
+    values[0] = x + y * 3;
+    x = values[0] << 1;
+    active = !false || (x >= 2 && y != 0);
+
+    if (active) {
+        sum(x, y);
+    } else {
+        x = x - 1;
+    }
+
+    while (x > 0) {
+        x = x - 1;
+        if (x == 3) break;
+    }
+
+    do {
+        y = y - 1;
+    } while (y > 0);
+}
+
+main() {
+    int[] data;
+    process(data, 10);
+}
