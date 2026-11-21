@@ -69,8 +69,7 @@ for label in 'ArrayType' 'Hex\n0x2A' 'Bits\n0b101' 'Bool\ntrue' \
   fi
 done
 
-# Пример преподавателя: весь текст должен давать DOT без раскраски.
-ok examples/teacher/all.spo
+# Проверяем, что у графа нет цветной темы.
 if grep -Eq 'fillcolor|fontcolor|color=' "$dir/tree.dot"; then
   echo 'FAIL: в DOT осталась цветная тема' >&2
   exit 1

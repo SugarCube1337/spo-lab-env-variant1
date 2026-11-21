@@ -1,0 +1,967 @@
+gcc  -std=c11 -g3 -O0 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wno-unused-parameter -Wno-shadow -I. -Iinclude -Isrc -Ibuild/windows -c build/windows/language.c -o build/windows/language.o
+build/windows/language.c: In function 'pcc_commit_buffer':
+build/windows/language.c:756:74: warning: conversion to 'size_t' {aka 'long long unsigned int'} from 'int' may change the sign of the result [-Wsign-conversion]
+  756 |     memmove(ctx->buffer.buf, ctx->buffer.buf + ctx->pos, ctx->buffer.len - ctx->pos);
+      |                                                          ~~~~~~~~~~~~~~~~^~~~~~~~~~
+build/windows/language.c: In function 'pcc_action_source_0':
+build/windows/language.c:891:5: error: type defaults to 'int' in type name [-Wimplicit-int]
+  891 |     parse_expect(auxil, _0e, "expected function declaration or end of file");
+      |     ^~~~~~~~~~~~
+build/windows/language.c:890:14: warning: conversion to 'size_t' {aka 'long long unsigned int'} from 'int' may change the sign of the result [-Wsign-conversion]
+  890 | #define _0e ((const)__pcc_in->data.leaf.capt0.range.end)
+      |             ~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:891:25: note: in expansion of macro '_0e'
+  891 |     parse_expect(auxil, _0e, "expected function declaration or end of file");
+      |                         ^~~
+build/windows/language.c: In function 'pcc_action_variable_0':
+build/windows/language.c:1505:5: error: type defaults to 'int' in type name [-Wimplicit-int]
+ 1505 |     parse_expect(auxil, _0e, "expected expression after '='");
+      |     ^~~~~~~~~~~~
+build/windows/language.c:1504:14: warning: conversion to 'size_t' {aka 'long long unsigned int'} from 'int' may change the sign of the result [-Wsign-conversion]
+ 1504 | #define _0e ((const)__pcc_in->data.leaf.capt0.range.end)
+      |             ~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:1505:25: note: in expansion of macro '_0e'
+ 1505 |     parse_expect(auxil, _0e, "expected expression after '='");
+      |                         ^~~
+build/windows/language.c: In function 'pcc_action_postfix_0':
+build/windows/language.c:2144:5: error: type defaults to 'int' in type name [-Wimplicit-int]
+ 2144 |     parse_expect(auxil, _0e, "expected ')' after function arguments");
+      |     ^~~~~~~~~~~~
+build/windows/language.c:2143:14: warning: conversion to 'size_t' {aka 'long long unsigned int'} from 'int' may change the sign of the result [-Wsign-conversion]
+ 2143 | #define _0e ((const)__pcc_in->data.leaf.capt0.range.end)
+      |             ~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:2144:25: note: in expansion of macro '_0e'
+ 2144 |     parse_expect(auxil, _0e, "expected ')' after function arguments");
+      |                         ^~~
+build/windows/language.c: In function 'pcc_evaluate_rule_source':
+build/windows/language.c:2624:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 2624 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_source_0, 1, 0);
+      |                                                                     ^
+build/windows/language.c:2624:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 2624 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_source_0, 1, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c:2636:65: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 2636 |         pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_source_1, 1, 0);
+      |                                                                 ^
+build/windows/language.c:2636:65: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 2636 |         pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_source_1, 1, 0);
+      |                                                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c: In function 'pcc_evaluate_rule_function_list':
+build/windows/language.c:2660:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 2660 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_function_list_0, 2, 0);
+      |                                                                     ^
+build/windows/language.c:2660:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 2660 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_function_list_0, 2, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c:2672:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 2672 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_function_list_1, 2, 0);
+      |                                                                     ^
+build/windows/language.c:2672:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 2672 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_function_list_1, 2, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c: In function 'pcc_evaluate_rule_function_def':
+build/windows/language.c:2710:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 2710 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_function_def_0, 4, 0);
+      |                                                                     ^
+build/windows/language.c:2710:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 2710 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_function_def_0, 4, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c:2741:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 2741 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_function_def_1, 4, 0);
+      |                                                                     ^
+build/windows/language.c:2741:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 2741 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_function_def_1, 4, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c: In function 'pcc_evaluate_rule_function_body':
+build/windows/language.c:2772:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 2772 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_function_body_0, 1, 0);
+      |                                                                     ^
+build/windows/language.c:2772:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 2772 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_function_body_0, 1, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c:2788:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 2788 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_function_body_1, 1, 0);
+      |                                                                     ^
+build/windows/language.c:2788:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 2788 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_function_body_1, 1, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c: In function 'pcc_evaluate_rule_parameters':
+build/windows/language.c:2816:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 2816 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_parameters_0, 1, 0);
+      |                                                                     ^
+build/windows/language.c:2816:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 2816 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_parameters_0, 1, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c:2827:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 2827 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_parameters_1, 1, 0);
+      |                                                                     ^
+build/windows/language.c:2827:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 2827 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_parameters_1, 1, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c: In function 'pcc_evaluate_rule_parameter_items':
+build/windows/language.c:2855:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 2855 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_parameter_items_0, 2, 0);
+      |                                                                     ^
+build/windows/language.c:2855:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 2855 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_parameter_items_0, 2, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c:2868:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 2868 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_parameter_items_1, 2, 0);
+      |                                                                     ^
+build/windows/language.c:2868:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 2868 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_parameter_items_1, 2, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c: In function 'pcc_evaluate_rule_parameter':
+build/windows/language.c:2899:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 2899 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_parameter_0, 2, 0);
+      |                                                                     ^
+build/windows/language.c:2899:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 2899 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_parameter_0, 2, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c:2912:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 2912 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_parameter_1, 2, 0);
+      |                                                                     ^
+build/windows/language.c:2912:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 2912 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_parameter_1, 2, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c: In function 'pcc_evaluate_rule_type_ref':
+build/windows/language.c:2949:21: warning: variable 'i' set but not used [-Wunused-but-set-variable=]
+ 2949 |                 int i;
+      |                     ^
+build/windows/language.c:2969:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 2969 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_type_ref_0, 2, 1);
+      |                                                                     ^
+build/windows/language.c:2969:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 2969 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_type_ref_0, 2, 1);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c:2982:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 2982 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_type_ref_1, 2, 1);
+      |                                                                     ^
+build/windows/language.c:2982:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 2982 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_type_ref_1, 2, 1);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c: In function 'pcc_evaluate_rule_base_type':
+build/windows/language.c:3152:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 3152 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_base_type_0, 1, 1);
+      |                                                                     ^
+build/windows/language.c:3152:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 3152 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_base_type_0, 1, 1);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c:3164:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 3164 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_base_type_1, 1, 1);
+      |                                                                     ^
+build/windows/language.c:3164:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 3164 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_base_type_1, 1, 1);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c: In function 'pcc_evaluate_rule_block':
+build/windows/language.c:3202:65: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 3202 |         pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_block_0, 1, 0);
+      |                                                                 ^
+build/windows/language.c:3202:65: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 3202 |         pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_block_0, 1, 0);
+      |                                                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c: In function 'pcc_evaluate_rule_statement_list':
+build/windows/language.c:3226:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 3226 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_statement_list_0, 2, 0);
+      |                                                                     ^
+build/windows/language.c:3226:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 3226 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_statement_list_0, 2, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c:3238:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 3238 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_statement_list_1, 2, 0);
+      |                                                                     ^
+build/windows/language.c:3238:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 3238 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_statement_list_1, 2, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c: In function 'pcc_evaluate_rule_statement':
+build/windows/language.c:3258:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 3258 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_statement_0, 1, 0);
+      |                                                                     ^
+build/windows/language.c:3258:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 3258 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_statement_0, 1, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c:3270:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 3270 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_statement_1, 1, 0);
+      |                                                                     ^
+build/windows/language.c:3270:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 3270 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_statement_1, 1, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c:3282:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 3282 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_statement_2, 1, 0);
+      |                                                                     ^
+build/windows/language.c:3282:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 3282 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_statement_2, 1, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c:3294:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 3294 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_statement_3, 1, 0);
+      |                                                                     ^
+build/windows/language.c:3294:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 3294 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_statement_3, 1, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c:3306:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 3306 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_statement_4, 1, 0);
+      |                                                                     ^
+build/windows/language.c:3306:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 3306 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_statement_4, 1, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c:3318:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 3318 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_statement_5, 1, 0);
+      |                                                                     ^
+build/windows/language.c:3318:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 3318 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_statement_5, 1, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c:3330:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 3330 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_statement_6, 1, 0);
+      |                                                                     ^
+build/windows/language.c:3330:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 3330 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_statement_6, 1, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c: In function 'pcc_evaluate_rule_if_statement':
+build/windows/language.c:3413:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 3413 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_if_statement_0, 3, 0);
+      |                                                                     ^
+build/windows/language.c:3413:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 3413 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_if_statement_0, 3, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c:3459:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 3459 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_if_statement_1, 3, 0);
+      |                                                                     ^
+build/windows/language.c:3459:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 3459 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_if_statement_1, 3, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c: In function 'pcc_evaluate_rule_while_statement':
+build/windows/language.c:3521:65: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 3521 |         pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_while_statement_0, 2, 0);
+      |                                                                 ^
+build/windows/language.c:3521:65: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 3521 |         pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_while_statement_0, 2, 0);
+      |                                                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c: In function 'pcc_evaluate_rule_do_statement':
+build/windows/language.c:3600:65: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 3600 |         pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_do_statement_0, 2, 0);
+      |                                                                 ^
+build/windows/language.c:3600:65: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 3600 |         pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_do_statement_0, 2, 0);
+      |                                                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c: In function 'pcc_evaluate_rule_break_statement':
+build/windows/language.c:3645:65: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 3645 |         pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_break_statement_0, 0, 0);
+      |                                                                 ^
+build/windows/language.c:3645:65: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 3645 |         pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_break_statement_0, 0, 0);
+      |                                                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c: In function 'pcc_evaluate_rule_declaration':
+build/windows/language.c:3671:65: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 3671 |         pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_declaration_0, 2, 0);
+      |                                                                 ^
+build/windows/language.c:3671:65: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 3671 |         pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_declaration_0, 2, 0);
+      |                                                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c: In function 'pcc_evaluate_rule_variable_list':
+build/windows/language.c:3702:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 3702 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_variable_list_0, 2, 0);
+      |                                                                     ^
+build/windows/language.c:3702:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 3702 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_variable_list_0, 2, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c:3715:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 3715 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_variable_list_1, 2, 0);
+      |                                                                     ^
+build/windows/language.c:3715:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 3715 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_variable_list_1, 2, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c: In function 'pcc_evaluate_rule_variable':
+build/windows/language.c:3756:73: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 3756 |                 pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_variable_0, 2, 0);
+      |                                                                         ^
+build/windows/language.c:3756:73: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 3756 |                 pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_variable_0, 2, 0);
+      |                                                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c:3768:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 3768 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_variable_1, 2, 0);
+      |                                                                     ^
+build/windows/language.c:3768:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 3768 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_variable_1, 2, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c:3781:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 3781 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_variable_2, 2, 0);
+      |                                                                     ^
+build/windows/language.c:3781:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 3781 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_variable_2, 2, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c: In function 'pcc_evaluate_rule_expression_statement':
+build/windows/language.c:3813:65: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 3813 |         pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_expression_statement_0, 1, 0);
+      |                                                                 ^
+build/windows/language.c:3813:65: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 3813 |         pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_expression_statement_0, 1, 0);
+      |                                                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c: In function 'pcc_evaluate_rule_expression':
+build/windows/language.c:3832:65: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 3832 |         pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_expression_0, 1, 0);
+      |                                                                 ^
+build/windows/language.c:3832:65: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 3832 |         pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_expression_0, 1, 0);
+      |                                                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c: In function 'pcc_evaluate_rule_assignment':
+build/windows/language.c:3874:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 3874 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_assignment_0, 3, 0);
+      |                                                                     ^
+build/windows/language.c:3874:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 3874 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_assignment_0, 3, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c:3887:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 3887 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_assignment_1, 3, 0);
+      |                                                                     ^
+build/windows/language.c:3887:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 3887 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_assignment_1, 3, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c: In function 'pcc_evaluate_rule_logical_or':
+build/windows/language.c:3928:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 3928 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_logical_or_0, 3, 0);
+      |                                                                     ^
+build/windows/language.c:3928:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 3928 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_logical_or_0, 3, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c:3941:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 3941 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_logical_or_1, 3, 0);
+      |                                                                     ^
+build/windows/language.c:3941:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 3941 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_logical_or_1, 3, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c: In function 'pcc_evaluate_rule_logical_and':
+build/windows/language.c:3982:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 3982 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_logical_and_0, 3, 0);
+      |                                                                     ^
+build/windows/language.c:3982:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 3982 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_logical_and_0, 3, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c:3995:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 3995 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_logical_and_1, 3, 0);
+      |                                                                     ^
+build/windows/language.c:3995:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 3995 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_logical_and_1, 3, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c: In function 'pcc_evaluate_rule_bit_or':
+build/windows/language.c:4044:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 4044 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_bit_or_0, 3, 0);
+      |                                                                     ^
+build/windows/language.c:4044:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 4044 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_bit_or_0, 3, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c:4057:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 4057 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_bit_or_1, 3, 0);
+      |                                                                     ^
+build/windows/language.c:4057:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 4057 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_bit_or_1, 3, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c: In function 'pcc_evaluate_rule_bit_xor':
+build/windows/language.c:4094:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 4094 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_bit_xor_0, 3, 0);
+      |                                                                     ^
+build/windows/language.c:4094:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 4094 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_bit_xor_0, 3, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c:4107:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 4107 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_bit_xor_1, 3, 0);
+      |                                                                     ^
+build/windows/language.c:4107:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 4107 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_bit_xor_1, 3, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c: In function 'pcc_evaluate_rule_bit_and':
+build/windows/language.c:4156:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 4156 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_bit_and_0, 3, 0);
+      |                                                                     ^
+build/windows/language.c:4156:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 4156 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_bit_and_0, 3, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c:4169:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 4169 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_bit_and_1, 3, 0);
+      |                                                                     ^
+build/windows/language.c:4169:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 4169 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_bit_and_1, 3, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c: In function 'pcc_evaluate_rule_equality':
+build/windows/language.c:4210:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 4210 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_equality_0, 3, 0);
+      |                                                                     ^
+build/windows/language.c:4210:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 4210 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_equality_0, 3, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c:4235:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 4235 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_equality_1, 3, 0);
+      |                                                                     ^
+build/windows/language.c:4235:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 4235 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_equality_1, 3, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c:4248:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 4248 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_equality_2, 3, 0);
+      |                                                                     ^
+build/windows/language.c:4248:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 4248 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_equality_2, 3, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c: In function 'pcc_evaluate_rule_comparison':
+build/windows/language.c:4289:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 4289 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_comparison_0, 3, 0);
+      |                                                                     ^
+build/windows/language.c:4289:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 4289 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_comparison_0, 3, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c:4314:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 4314 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_comparison_1, 3, 0);
+      |                                                                     ^
+build/windows/language.c:4314:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 4314 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_comparison_1, 3, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c:4347:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 4347 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_comparison_2, 3, 0);
+      |                                                                     ^
+build/windows/language.c:4347:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 4347 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_comparison_2, 3, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c:4380:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 4380 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_comparison_3, 3, 0);
+      |                                                                     ^
+build/windows/language.c:4380:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 4380 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_comparison_3, 3, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c:4393:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 4393 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_comparison_4, 3, 0);
+      |                                                                     ^
+build/windows/language.c:4393:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 4393 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_comparison_4, 3, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c: In function 'pcc_evaluate_rule_shift':
+build/windows/language.c:4434:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 4434 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_shift_0, 3, 0);
+      |                                                                     ^
+build/windows/language.c:4434:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 4434 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_shift_0, 3, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c:4459:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 4459 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_shift_1, 3, 0);
+      |                                                                     ^
+build/windows/language.c:4459:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 4459 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_shift_1, 3, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c:4472:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 4472 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_shift_2, 3, 0);
+      |                                                                     ^
+build/windows/language.c:4472:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 4472 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_shift_2, 3, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c: In function 'pcc_evaluate_rule_additive':
+build/windows/language.c:4509:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 4509 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_additive_0, 3, 0);
+      |                                                                     ^
+build/windows/language.c:4509:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 4509 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_additive_0, 3, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c:4530:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 4530 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_additive_1, 3, 0);
+      |                                                                     ^
+build/windows/language.c:4530:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 4530 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_additive_1, 3, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c:4543:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 4543 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_additive_2, 3, 0);
+      |                                                                     ^
+build/windows/language.c:4543:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 4543 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_additive_2, 3, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c: In function 'pcc_evaluate_rule_multiplicative':
+build/windows/language.c:4580:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 4580 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_multiplicative_0, 3, 0);
+      |                                                                     ^
+build/windows/language.c:4580:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 4580 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_multiplicative_0, 3, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c:4601:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 4601 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_multiplicative_1, 3, 0);
+      |                                                                     ^
+build/windows/language.c:4601:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 4601 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_multiplicative_1, 3, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c:4622:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 4622 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_multiplicative_2, 3, 0);
+      |                                                                     ^
+build/windows/language.c:4622:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 4622 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_multiplicative_2, 3, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c:4635:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 4635 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_multiplicative_3, 3, 0);
+      |                                                                     ^
+build/windows/language.c:4635:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 4635 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_multiplicative_3, 3, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c: In function 'pcc_evaluate_rule_unary':
+build/windows/language.c:4739:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 4739 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_unary_0, 1, 1);
+      |                                                                     ^
+build/windows/language.c:4739:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 4739 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_unary_0, 1, 1);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c:4752:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 4752 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_unary_1, 1, 1);
+      |                                                                     ^
+build/windows/language.c:4752:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 4752 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_unary_1, 1, 1);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c: In function 'pcc_evaluate_rule_postfix':
+build/windows/language.c:4799:73: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 4799 |                 pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_postfix_0, 4, 0);
+      |                                                                         ^
+build/windows/language.c:4799:73: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 4799 |                 pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_postfix_0, 4, 0);
+      |                                                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c:4812:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 4812 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_postfix_1, 4, 0);
+      |                                                                     ^
+build/windows/language.c:4812:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 4812 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_postfix_1, 4, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c:4839:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 4839 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_postfix_2, 4, 0);
+      |                                                                     ^
+build/windows/language.c:4839:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 4839 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_postfix_2, 4, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c:4852:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 4852 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_postfix_3, 4, 0);
+      |                                                                     ^
+build/windows/language.c:4852:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 4852 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_postfix_3, 4, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c: In function 'pcc_evaluate_rule_arguments':
+build/windows/language.c:4881:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 4881 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_arguments_0, 1, 0);
+      |                                                                     ^
+build/windows/language.c:4881:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 4881 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_arguments_0, 1, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c:4892:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 4892 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_arguments_1, 1, 0);
+      |                                                                     ^
+build/windows/language.c:4892:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 4892 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_arguments_1, 1, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c: In function 'pcc_evaluate_rule_argument_items':
+build/windows/language.c:4920:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 4920 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_argument_items_0, 2, 0);
+      |                                                                     ^
+build/windows/language.c:4920:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 4920 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_argument_items_0, 2, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c:4933:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 4933 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_argument_items_1, 2, 0);
+      |                                                                     ^
+build/windows/language.c:4933:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 4933 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_argument_items_1, 2, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c: In function 'pcc_evaluate_rule_primary':
+build/windows/language.c:4962:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 4962 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_primary_0, 1, 0);
+      |                                                                     ^
+build/windows/language.c:4962:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 4962 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_primary_0, 1, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c:4974:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 4974 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_primary_1, 1, 0);
+      |                                                                     ^
+build/windows/language.c:4974:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 4974 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_primary_1, 1, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c:4998:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 4998 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_primary_2, 1, 0);
+      |                                                                     ^
+build/windows/language.c:4998:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 4998 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_primary_2, 1, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c: In function 'pcc_evaluate_rule_literal':
+build/windows/language.c:5027:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 5027 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_literal_0, 1, 0);
+      |                                                                     ^
+build/windows/language.c:5027:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 5027 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_literal_0, 1, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c:5039:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 5039 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_literal_1, 1, 0);
+      |                                                                     ^
+build/windows/language.c:5039:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 5039 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_literal_1, 1, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c:5051:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 5051 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_literal_2, 1, 0);
+      |                                                                     ^
+build/windows/language.c:5051:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 5051 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_literal_2, 1, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c:5063:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 5063 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_literal_3, 1, 0);
+      |                                                                     ^
+build/windows/language.c:5063:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 5063 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_literal_3, 1, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c:5075:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 5075 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_literal_4, 1, 0);
+      |                                                                     ^
+build/windows/language.c:5075:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 5075 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_literal_4, 1, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c:5087:69: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 5087 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_literal_5, 1, 0);
+      |                                                                     ^
+build/windows/language.c:5087:69: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 5087 |             pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_literal_5, 1, 0);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c: In function 'pcc_evaluate_rule_hex_literal':
+build/windows/language.c:5161:65: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 5161 |         pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_hex_literal_0, 0, 1);
+      |                                                                 ^
+build/windows/language.c:5161:65: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 5161 |         pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_hex_literal_0, 0, 1);
+      |                                                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c: In function 'pcc_evaluate_rule_bits_literal':
+build/windows/language.c:5227:65: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 5227 |         pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_bits_literal_0, 0, 1);
+      |                                                                 ^
+build/windows/language.c:5227:65: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 5227 |         pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_bits_literal_0, 0, 1);
+      |                                                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c: In function 'pcc_evaluate_rule_dec_literal':
+build/windows/language.c:5275:65: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 5275 |         pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_dec_literal_0, 0, 1);
+      |                                                                 ^
+build/windows/language.c:5275:65: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 5275 |         pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_dec_literal_0, 0, 1);
+      |                                                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c: In function 'pcc_evaluate_rule_bool_literal':
+build/windows/language.c:5344:65: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 5344 |         pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_bool_literal_0, 0, 1);
+      |                                                                 ^
+build/windows/language.c:5344:65: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 5344 |         pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_bool_literal_0, 0, 1);
+      |                                                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c: In function 'pcc_evaluate_rule_string_literal':
+build/windows/language.c:5369:17: warning: variable 'i' set but not used [-Wunused-but-set-variable=]
+ 5369 |             int i;
+      |                 ^
+build/windows/language.c:5413:65: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 5413 |         pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_string_literal_0, 0, 1);
+      |                                                                 ^
+build/windows/language.c:5413:65: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 5413 |         pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_string_literal_0, 0, 1);
+      |                                                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c: In function 'pcc_evaluate_rule_char_literal':
+build/windows/language.c:5452:65: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 5452 |         pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_char_literal_0, 0, 1);
+      |                                                                 ^
+build/windows/language.c:5452:65: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 5452 |         pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_char_literal_0, 0, 1);
+      |                                                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c: In function 'pcc_evaluate_rule_identifier':
+build/windows/language.c:5491:17: warning: variable 'i' set but not used [-Wunused-but-set-variable=]
+ 5491 |             int i;
+      |                 ^
+build/windows/language.c:5511:65: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+ 5511 |         pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_identifier_0, 0, 1);
+      |                                                                 ^
+build/windows/language.c:5511:65: warning: ISO C forbids passing argument 2 of 'pcc_thunk__create_leaf' between function pointer and 'void *' [-Wpedantic]
+ 5511 |         pcc_thunk_t *thunk = pcc_thunk__create_leaf(ctx->auxil, (void *)pcc_action_identifier_0, 0, 1);
+      |                                                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build/windows/language.c:365:76: note: expected 'pcc_action_t' {aka 'void (*)(struct spo_context_tag *, struct pcc_thunk_tag *, AstNode **)'} but argument is of type 'void *'
+  365 | static pcc_thunk_t *pcc_thunk__create_leaf(pcc_auxil_t auxil, pcc_action_t action, int valuec, int captc) {
+      |                                                               ~~~~~~~~~~~~~^~~~~~
+build/windows/language.c: In function 'pcc_evaluate_rule__':
+build/windows/language.c:5835:13: warning: variable 'i' set but not used [-Wunused-but-set-variable=]
+ 5835 |         int i;
+      |             ^
+make: *** [Makefile:81: build/windows/language.o] Error 1

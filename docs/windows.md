@@ -15,10 +15,10 @@ gcc -dumpmachine       # x86_64-w64-mingw32 или аналогично
 Если инструменты не установлены, **в MSYS2 UCRT64**:
 
 ```bash
-pacman -S --needed base-devel git mingw-w64-ucrt-x86_64-gcc mingw-w64-ucrt-x86_64-graphviz
+pacman -S --needed base-devel git mingw-w64-ucrt-x86_64-gcc mingw-w64-ucrt-x86_64-graphviz mingw-w64-ucrt-x86_64-python
 ```
 
-Проверить `make --version` и `dot -V`.
+Проверить `make --version`, `dot -V` и `python3 --version`. Если доступна только команда `python`, используй `make PYTHON=python check`.
 
 ## 2. Установи PackCC для Windows
 
@@ -42,7 +42,7 @@ make doctor-windows
 make verify-windows
 ```
 
-`verify-windows` выполняет сборку, все C-тесты, CLI-тесты и генерацию четырёх деревьев преподавателя. Никакой Valgrind здесь не запускается; его проверка остаётся в WSL (`make memcheck`).
+`verify-windows` выполняет сборку, все C-тесты, CLI-тесты и генерацию DOT, TXT, SVG для примеров. Никакой Valgrind здесь не запускается; его проверка остаётся в WSL (`make memcheck`).
 
 Если нужна только сборка:
 
